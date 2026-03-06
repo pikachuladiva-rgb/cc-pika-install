@@ -6,11 +6,6 @@ const path = require('path');
 const os = require('os');
 const readline = require('readline');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
 console.log('Installing Claude Code via npm...');
 
 exec('npm install -g @anthropic-ai/claude-code', (error, stdout, stderr) => {
@@ -25,6 +20,11 @@ exec('npm install -g @anthropic-ai/claude-code', (error, stdout, stderr) => {
   }
   if (stderr) console.error(stderr);
   if (stdout) console.log(stdout);
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
 
   rl.question('\nEnter API Base URL: ', (baseUrl) => {
     if (!baseUrl || baseUrl.trim() === '') {
