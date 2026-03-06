@@ -59,7 +59,13 @@ exec('npm install -g @anthropic-ai/claude-code', (error, stdout, stderr) => {
     }
 
       fs.writeFileSync(settingsPath, JSON.stringify(customConfig, null, 2));
-      console.log('Configuration complete! Claude Code is ready to use.');
+      console.log('\n✅ Installation complete!\n');
+      console.log('To start using Claude Code, run:');
+      console.log('  claude\n');
+      console.log('Quick tips:');
+      console.log('  - Type your questions or requests in natural language');
+      console.log('  - Use /help to see available commands');
+      console.log('  - Press Ctrl+C or type "exit" to quit\n');
       rl.close();
     });
   });
