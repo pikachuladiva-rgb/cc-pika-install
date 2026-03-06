@@ -15,7 +15,12 @@ console.log('Installing Claude Code via npm...');
 
 exec('npm install -g @anthropic-ai/claude-code', (error, stdout, stderr) => {
   if (error) {
-    console.error('Installation failed:', error.message);
+    console.error('\n❌ Installation failed:', error.message);
+    if (error.message.includes('EACCES') || error.message.includes('permission denied')) {
+      console.error('\n💡 Permission error detected!');
+      console.error('On Linux/Ubuntu, try running with sudo:');
+      console.error('  sudo npx cc-pika-install@latest\n');
+    }
     process.exit(1);
   }
   if (stderr) console.error(stderr);
