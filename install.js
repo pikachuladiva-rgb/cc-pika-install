@@ -56,7 +56,13 @@ exec('npm install -g @anthropic-ai/claude-code', (error, stdout, stderr) => {
     };
 
     console.log('Configuring Claude Code...');
-    const claudeDir = path.join(os.homedir(), '.claude');
+
+    // Get actual user's home directory (not root when using sudo)
+    const actualHome = process.env.SUDO_USER
+      ? path.join('/home', process.env.SUDO_USER)
+      : os.homedir();
+
+    const claudeDir = path.join(actualHome, '.claude');
     const settingsPath = path.join(claudeDir, 'settings.json');
 
     if (!fs.existsSync(claudeDir)) {
