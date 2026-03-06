@@ -1,0 +1,15 @@
+{
+  "name": "cc-pika-install",
+  "version": "1.0.1",
+  "description": "Universal Claude Code installer for all platforms",
+  "bin": {
+    "cc-pika-install": "./install.js"
+  },
+  "keywords": ["claude", "claude-code", "installer", "cli", "anthropic"],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pikachuladiva-rgb/cc-pika-install.git"
+  }
+}
